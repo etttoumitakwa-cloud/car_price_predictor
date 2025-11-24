@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car Price Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+</head>
+
+<body>
+  <div class="container">
+    <h1>Car Price Predictor</h1>
+
+    <form method="POST">
+      <label>Horsepower</label>
+      <input type="number" step="any" name="horsepower" required />
+
+      <label>Curb Weight</label>
+      <input type="number" step="any" name="curbweight" required />
+
+      <label>Engine Size</label>
+      <input type="number" step="any" name="enginesize" required />
+
+      <button type="submit">Predict Price</button>
+    </form>
+
+    {% if prediction %}
+      <div class="result">
+        Predicted Price: {{ prediction }}
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
+
